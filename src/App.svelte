@@ -4,7 +4,7 @@
 
 <div class="min-h-screen bg-gradient-to-b from-black via-purple-900 to-black text-white">
   <!-- Header section -->
-  <header class="w-full flex justify-between items-center py-4 px-8 bg-black bg-opacity-50">
+  <header class="w-full flex flex-row justify-between items-center py-4 px-8 bg-black bg-opacity-50">
     <div class="text-2xl font-bold">Hamzah</div>
     <nav class="hidden md:flex space-x-8">
       <a href="#" class="nav-link">Feature</a>
