@@ -5,7 +5,18 @@ export default {
     "./src/**/*.{svelte,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'purple-750': '#5e38c8',
+        'dark-200': '#272934'
+      },
+      letterSpacing: {
+        widest: '0.2em'
+      },
+      height: {
+        'screen-set': '88vh'
+      }
+    },
   },
   plugins: [],
 }
