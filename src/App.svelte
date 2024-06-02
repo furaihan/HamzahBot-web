@@ -13,10 +13,10 @@
         <a href="#" class="nav-link">Add to Discord</a>
       </nav>
       <div class="hidden md:flex items-center space-x-4">
-        <select class="bg-transparent backdrop-blur-sm bg-white/20 text-white border border-gray-500 p-2 rounded-xl">
+        <select class="backdrop-blur-sm bg-white/20 text-white border border-gray-500 p-2 rounded-xl">
           <option>ID</option>
         </select>
-        <button class="bg-transparent backdrop-blur-sm bg-white/20 border border-gray-500 hover:bg-purple-800 text-white px-4 py-2 rounded-xl">Login with Discord</button>
+        <button class="backdrop-blur-sm bg-white/20 border border-gray-500 hover:bg-purple-800 text-white px-4 py-2 rounded-xl">Login with Discord</button>
       </div>
     </header>
     
@@ -35,59 +35,31 @@
   </div>
   
   <!-- Hero sections -->
-  <section class="p-12 bg-dark-200">
-
-        <!-- First Section -->
-        <div class="flex flex-col md:flex-row items-center justify-between mb-12">
-            <div class="max-w-lg">
-                <h1 class="text-4xl font-bold mb-4">Kelola server Anda dengan lebih baik</h1>
-                <p class="text-lg leading-relaxed">
-                    Sambut member baru dengan pesan yang dipersonalisasi, ciptakan suasana positif dengan bad words filter dan link berbahaya, kelola voice channel dengan temporary voice, dan lindungi komunitas Anda dari ancaman online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik!
-                </p>
-            </div>
-            <div class="mt-8 md:mt-0">
-                <img src="path/to/your/hero-image.png" alt="Hero Image" class="max-w-full h-auto">
-            </div>
-        </div>
-
-        <!-- Second Section -->
-        <div class="flex flex-col md:flex-row items-center justify-between mb-12">
-          <div class="mt-8 md:mt-0">
-              <img src="path/to/your/hero-image.png" alt="Hero Image" class="max-w-full h-auto">
-          </div>
-            <div class="max-w-lg">
-                <h1 class="text-4xl font-bold mb-4">Asah otak Anda dengan Wordle Bahasa Indonesia</h1>
-                <p class="text-lg leading-relaxed">
-                  Mainkan Wordle hari-hari dalam versi bahasa Indonesia. Kerahkan game ini untuk mengasah kosa kata bahasa Indonesia, melatih otak, dan bersaing dengan teman-teman.
-                </p>
-            </div>
-        </div>
-
-        <!-- Third Section -->
-        <div class="flex flex-col md:flex-row items-center justify-between mb-12">
-            <div class="max-w-lg">
-                <h1 class="text-4xl font-bold mb-4">Promosikan saluran streaming Anda</h1>
-                <p class="text-lg leading-relaxed">
-                  Layanan yang memberikan pemberitahuan kepada pengguna tentang sorotan baru dan penting dari saluran streaming yang mereka sukai. Melalui notifikasi, pengguna dapat tetap terinformasi secara real-time tentang video-video atau siaran yang akan dimulai.
-                </p>
-            </div>
-            <div class="mt-8 md:mt-0">
-                <img src="path/to/your/hero-image.png" alt="Hero Image" class="max-w-full h-auto">
-            </div>
-        </div>
-
-        <!-- Fourth Section -->
-        <div class="flex flex-col md:flex-row items-center justify-between mb-12">
-          <div class="mt-8 md:mt-0">
-              <img src="path/to/your/hero-image.png" alt="Hero Image" class="max-w-full h-auto">
-          </div>
-          <div class="max-w-lg">
-              <h1 class="text-4xl font-bold mb-4">Ubah imajinasi menjadi nyata dengan AI</h1>
-              <p class="text-lg leading-relaxed">
-                Uji coba kemampuan AI sistem mengubah gambar untuk gambar seni dan kreatif. Rasakan bot kami mentransformasi sentuhan magis pada foto-foto teman!
-              </p>
-          </div>
-        </div>
+  <section class="p-12 bg-dark-200 flex flex-col space-y-12 w-screen h-[200vh] items-center">
+      <HeroSection 
+        title="Kelola server Anda dengan lebih baik" 
+        content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
+        imageUrl="/src/assets/hero1.png"
+        isImageLeft={true} 
+      />
+      <HeroSection 
+        title="Asah otak Anda dengan Wordle Bahasa Indonesia" 
+        content="Mainkan Wordle hari-hari dalam versi bahasa Indonesia. Kerahkan game ini untuk mengasah kosa kata bahasa Indonesia, melatih otak, dan bersaing dengan teman-teman."
+        imageUrl="/src/assets/hero2.svg"
+        isImageLeft={false} 
+      />
+      <HeroSection 
+        title="Promosikan saluran streaming Anda" 
+        content="Layanan yang memberikan pemberitahuan kepada pengguna tentang sorotan baru dan penting dari saluran streaming yang mereka sukai. Melalui notifikasi, pengguna dapat tetap terinformasi secara real-time tentang video-video atau siaran yang akan dimulai."
+        imageUrl="/src/assets/hero3.png"
+        isImageLeft={true} 
+      />
+      <HeroSection 
+        title="Ubah imajinasi menjadi nyata dengan AI" 
+        content="Uji coba kemampuan AI sistem mengubah gambar untuk gambar seni dan kreatif. Rasakan bot kami mentransformasi sentuhan magis pada foto-foto teman!"
+        imageUrl="/src/assets/hero4.png"
+        isImageLeft={false} 
+      />
   </section>
 
   <!-- Call to Action Section -->
