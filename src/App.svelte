@@ -53,6 +53,7 @@
         content="Layanan yang memberikan pemberitahuan kepada pengguna tentang sorotan baru dan penting dari saluran streaming yang mereka sukai. Melalui notifikasi, pengguna dapat tetap terinformasi secara real-time tentang video-video atau siaran yang akan dimulai."
         imageUrl="/src/assets/hero3.png"
         isImageLeft={false} 
+        aspectRatio="4/3"
       />
       <HeroSection 
         title="Ubah imajinasi menjadi nyata dengan AI" 
