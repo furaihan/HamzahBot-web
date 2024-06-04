@@ -5,7 +5,7 @@
 <div class="min-h-screen text-white">
   <div class="bg-gradient-to-b from-black to-purple-900">
     <!-- Header section -->
-    <header class="w-full flex flex-col md:flex-row justify-between items-center py-4 px-4 md:px-8 bg-black bg-opacity-50">
+    <header class="w-full flex flex-col md:flex-row justify-between items-center py-4 px-4 md:px-8">
       <div class="text-2xl font-bold mb-4 md:mb-0">Hamzah</div>
       <nav class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mb-4 md:mb-0">
         <a href="#" class="nav-link text-center">Feature</a>
@@ -27,15 +27,15 @@
         <p class="max-w-xl mx-auto text-sm md:text-base">
           Hamzah adalah bot Discord yang lengkap, mudah digunakan, yang dipercaya oleh jutaan server Discord di seluruh dunia untuk mengelola, menghibur, dan mengembangkan komunitas mereka.
         </p>
-        <button class="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-full text-sm md:text-base">
+        <p class="text-white px-6 py-3 text-sm self-end md:text-base">
           Jadikan Server Discord Anda Jauh Lebih Baik
-        </button>
+        </p>
       </section>
     </main>
   </div>
   
   <!-- Hero sections -->
-  <section class="p-4 md:p-12 bg-dark-200 flex flex-col space-y-8 md:space-y-12 w-full items-center">
+  <section class=" bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
       <HeroSection 
         title="Kelola server Anda dengan lebih baik" 
         content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
@@ -53,6 +53,7 @@
         content="Layanan yang memberikan pemberitahuan kepada pengguna tentang sorotan baru dan penting dari saluran streaming yang mereka sukai. Melalui notifikasi, pengguna dapat tetap terinformasi secara real-time tentang video-video atau siaran yang akan dimulai."
         imageUrl="/src/assets/hero3.png"
         isImageLeft={false} 
+        aspectRatio="4/3"
       />
       <HeroSection 
         title="Ubah imajinasi menjadi nyata dengan AI" 
