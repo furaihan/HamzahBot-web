@@ -16,6 +16,17 @@ export default {
       },
       height: {
         'screen-set': '88vh'
+      },
+      fontSize: {
+        'md': ['15px', {
+          lineHeight: '22px'
+        }]
+      },
+      width: {
+        '86': '350px'
+      },
+      height: {
+        
       }
     },
   },
