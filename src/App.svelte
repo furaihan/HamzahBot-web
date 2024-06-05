@@ -1,23 +1,57 @@
 <script>
   import HeroSection from './HeroSection.svelte';
+  import NavbarItemsDesktop from './NavbarItemsDesktop.svelte';
+  import { onMount } from 'svelte';
+
+  let menuOpen = false;
+  const toggleMenu = () => {
+    menuOpen = !menuOpen;
+    console.log("menu open: ", menuOpen);
+  }
+
+  onMount(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+    const handleMediaQueryChange = (event) => {
+      if (event.matches) {
+        menuOpen = false;
+      }
+    };
+
+    mediaQuery.addListener(handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  });
 </script>
 
 <div class="min-h-screen text-white">
   <div class="bg-gradient-to-b from-black to-purple-900">
     <!-- Header section -->
-    <header class="w-full flex flex-col md:flex-row justify-between items-center py-4 px-4 md:px-8">
-      <div class="text-2xl font-bold mb-4 md:mb-0">Hamzah</div>
-      <nav class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mb-4 md:mb-0">
-        <a href="#" class="nav-link text-center">Feature</a>
-        <a href="#" class="nav-link text-center">Premium</a>
-        <a href="#" class="nav-link text-center">Add to Discord</a>
-      </nav>
-      <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
-        <select class="w-full md:w-auto backdrop-blur-sm bg-white/20 text-white border border-gray-500 p-2 rounded-xl mb-4 md:mb-0">
-          <option>ID</option>
-        </select>
-        <button class="w-full md:w-auto backdrop-blur-sm bg-white/20 border border-gray-500 hover:bg-purple-800 text-white px-4 py-2 rounded-xl">Login with Discord</button>
+    <header class="flex flex-col h-auto bg-black">
+      <div class="w-full flex flex-row justify-between items-center py-4 px-4 md:px-8 md:h-18">
+        <div class="text-2xl font-bold mb-4 md:mb-0">Hamzah</div>
+        <NavbarItemsDesktop />
+        <div class="flex flex-row items-center space-y-0 space-x-4">
+          <button class="group w-full md:w-auto backdrop-blur-sm bg-discord text-white px-4 py-2 rounded-3xl flex flex-row items-center space-x-2 border border-white hover:bg-white hover:text-discord transition ease-in-out hover:-translate-y-1">
+            <div class="aspect-auto items-center">
+              <img src="/src/assets/discord-mark-white.svg" alt="discord" class="w-6 group-hover:hidden">
+              <img src="/src/assets/discord-mark-blue.svg" alt="discord" class="w-6 hidden group-hover:block">
+            </div>
+            <p>Login with Discord</p>
+          </button>
+          <button class="aspect-auto items-center md:hidden" on:click={toggleMenu}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-6 fill-white">
+              <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+            </svg>
+          </button>
+        </div>
       </div>
+      <nav class="flex-col space-y-4 bg-gray-800 border rounded border-black flex mx-4 mb-4 items-start pl-4 {menuOpen ? "flex" : "hidden"}">
+        <a href="#" class="nav-link w-full">Feature</a>
+        <a href="#" class="nav-link w-full">Premium</a>
+        <a href="#" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
+      </nav>
     </header>
     
     <!-- Main content -->
