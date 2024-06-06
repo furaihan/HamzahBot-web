@@ -37,10 +37,10 @@
   });
 </script>
 
-<div class="min-h-screen text-white">
-  <div class="bg-gradient-to-b from-black to-purple-900">
+<div class="bg-main-content1 bg-black min-h-screen bg-top text-white">
+  <div class="bg-main-content2 bg-contain bg-no-repeat bg-center md:bg-cover">
     <!-- Header section -->
-    <header class="flex flex-col h-auto bg-black">
+    <header class="flex flex-col h-auto">
       <div class="w-full flex flex-row justify-between items-center py-4 px-4 md:px-8 md:h-18">
         <div class="text-2xl font-bold mb-4 md:mb-0">Hamzah</div>
         <NavbarItemsDesktop />
@@ -70,14 +70,18 @@
     <!-- Main content -->
     <main class="px-4 md:px-8 py-16 min-h-screen flex flex-col items-center justify-center relative">
       <section class="text-center space-y-8">
-        <h1 class="text-4xl md:text-6xl font-bold tracking-widest">Hamzah</h1>
-        <p class="max-w-xl mx-auto text-sm md:text-base">
-          Tingkatkan server Discord Anda dengan bot multifungsi kami—dari sambutan ramah hingga keamanan canggih, semua dalam satu paket untuk pengalaman komunitas yang lebih baik!.
+        <h1 class="pl-5 text-4xl md:text-8xl font-bold tracking-widest">Hamzah</h1>
+        <p class="max-w-md mx-auto text-sm md:text-base">
+          Tingkatkan server Discord Anda dengan bot multifungsi kami dari sambutan ramah hingga keamanan canggih, semua dalam satu paket untuk pengalaman komunitas yang lebih baik!.
         </p>
       </section>
+
+      <div class="absolute bottom-7">
+        <p>Jadikan Server Discord Anda Jauh Lebih Baik</p>
+      </div>
       
       <!-- Bouncing Down Arrow -->
-      <div class="absolute bottom-8 animate-bounce">
+      <div class="absolute bottom-14 animate-bounce">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
@@ -91,7 +95,7 @@
         title="Kelola server Anda dengan lebih baik" 
         content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
         imageUrl="/src/assets/hero1.png"
-        isImageLeft={false} 
+        isImageLeft={false}
       />
       <HeroSection 
         title="Asah otak Anda dengan Wordle Bahasa Indonesia" 
@@ -130,15 +134,15 @@
       </div>
       <div class="text-center mb-4 md:mb-0 order-3 md:order-none">
           <p class="mt-4 max-w-md text-sm md:text-base">
-            Tingkatkan server Discord Anda dengan bot multifungsi kami—dari sambutan ramah hingga keamanan canggih, semua dalam satu paket untuk pengalaman komunitas yang lebih baik!.
+            Tingkatkan server Discord Anda dengan bot multifungsi kami dari sambutan ramah hingga keamanan canggih, semua dalam satu paket untuk pengalaman komunitas yang lebih baik!.
           </p>
       </div>
       <div class="flex flex-col space-y-2 text-center md:text-right mb-4 md:mb-0">
-          <a href="/#" class="hover:text-white">Contact</a>
-          <a href="/#" class="hover:text-white">Social</a>
-          <a href="/#" class="hover:text-white">Term of use</a>
-          <a href="/#" class="hover:text-white">Privacy Policy</a>
-          <a href="/#" class="hover:text-white">Premium</a>
+          <a href="/#" class="hover:text-discord">Contact</a>
+          <a href="/#" class="hover:text-discord">Social</a>
+          <a href="/#" class="hover:text-discord">Term of use</a>
+          <a href="/#" class="hover:text-discord">Privacy Policy</a>
+          <a href="/#" class="hover:text-discord">Premium</a>
       </div>
     </div>
   </footer>
