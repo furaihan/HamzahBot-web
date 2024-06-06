@@ -1,6 +1,12 @@
 <script>
   import HeroSection from './HeroSection.svelte';
   import NavbarItemsDesktop from './NavbarItemsDesktop.svelte';
+  import hero1 from './assets/hero1.png';
+  import hero2 from './assets/hero2.svg';
+  import hero3 from './assets/hero3.png';
+  import hero4 from './assets/hero4.png';
+  import discordBlue from './assets/discord-mark-blue.svg';
+  import discordWhite from './assets/discord-mark-white.svg';
   import { onMount } from 'svelte';
 
   let menuOpen = false;
@@ -47,8 +53,8 @@
         <div class="flex flex-row items-center space-y-0 space-x-4">
           <button class="group w-full md:w-auto backdrop-blur-sm bg-discord text-white px-4 py-2 rounded-3xl flex flex-row items-center space-x-2 border border-white hover:bg-white hover:text-discord transition ease-in-out hover:-translate-y-1">
             <div class="aspect-auto items-center">
-              <img src="/src/assets/discord-mark-white.svg" alt="discord" class="w-6 group-hover:hidden">
-              <img src="/src/assets/discord-mark-blue.svg" alt="discord" class="w-6 hidden group-hover:block">
+              <img src="{discordWhite}" alt="discord" class="w-6 group-hover:hidden">
+              <img src="{discordBlue}" alt="discord" class="w-6 hidden group-hover:block">
             </div>
             <p>Login with Discord</p>
           </button>
@@ -94,26 +100,26 @@
       <HeroSection 
         title="Kelola server Anda dengan lebih baik" 
         content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
-        imageUrl="/src/assets/hero1.png"
+        imageUrl="{hero1}"
         isImageLeft={false}
       />
       <HeroSection 
         title="Asah otak Anda dengan Wordle Bahasa Indonesia" 
         content="Mainkan Wordle hari-hari dalam versi bahasa Indonesia. Kerahkan game ini untuk mengasah kosa kata bahasa Indonesia, melatih otak, dan bersaing dengan teman-teman."
-        imageUrl="/src/assets/hero2.svg"
+        imageUrl="{hero2}"
         isImageLeft={true} 
       />
       <HeroSection 
         title="Promosikan saluran streaming Anda" 
         content="Layanan yang memberikan pemberitahuan kepada pengguna tentang sorotan baru dan penting dari saluran streaming yang mereka sukai. Melalui notifikasi, pengguna dapat tetap terinformasi secara real-time tentang video-video atau siaran yang akan dimulai."
-        imageUrl="/src/assets/hero3.png"
+        imageUrl="{hero3}"
         isImageLeft={false} 
         aspectRatio="4/3"
       />
       <HeroSection 
         title="Ubah imajinasi menjadi nyata dengan AI" 
         content="Uji coba kemampuan AI sistem mengubah gambar untuk gambar seni dan kreatif. Rasakan bot kami mentransformasi sentuhan magis pada foto-foto teman!"
-        imageUrl="/src/assets/hero4.png"
+        imageUrl="{hero4}"
         isImageLeft={true} 
       />
   </section>
@@ -121,7 +127,7 @@
   <!-- Call to Action Section -->
   <section class="flex items-center justify-center py-10 bg-discord">
     <button class="transition flex items-center bg-white font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base hover:-translate-y-2 ease-in-out">
-      <img src="/src/assets/discord-mark-blue.svg" alt="discord" class="w-6">
+      <img src="{discordBlue}" alt="discord" class="w-6">
       <span class="ml-2 text-discord">Add to Discord</span>
     </button>
   </section>
