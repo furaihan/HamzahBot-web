@@ -23,6 +23,9 @@ export default {
         'main-content2': "url('/src/assets/main_decoration.png')",
         'hero-content': "url('/src/assets/hero.png')"
       },
+      width: {
+        '75': '75%'
+      },
     },
   },
   plugins: [
