@@ -138,11 +138,11 @@
           </p>
       </div>
       <div class="flex flex-col space-y-2 text-center md:text-right mb-4 md:mb-0">
-          <a href="/#" class="hover:text-white">Contact</a>
-          <a href="/#" class="hover:text-white">Social</a>
-          <a href="/#" class="hover:text-white">Term of use</a>
-          <a href="/#" class="hover:text-white">Privacy Policy</a>
-          <a href="/#" class="hover:text-white">Premium</a>
+          <a href="/#" class="hover:text-discord">Contact</a>
+          <a href="/#" class="hover:text-discord">Social</a>
+          <a href="/#" class="hover:text-discord">Term of use</a>
+          <a href="/#" class="hover:text-discord">Privacy Policy</a>
+          <a href="/#" class="hover:text-discord">Premium</a>
       </div>
     </div>
   </footer>
