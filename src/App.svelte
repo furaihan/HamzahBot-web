@@ -97,10 +97,10 @@
   
   <!-- Hero sections -->
   <section class="relative bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
-    <img src="pngwing8.png" alt="pngwing" class="absolute left-1/3 top-[8%] md:block hidden">
-    <img src="pngwing7.png" alt="pngwing" class="absolute right-[36%] top-[25%] md:block hidden">
-    <img src="pngwing10.png" alt="pngwing" class="absolute left-[10%] bottom-[20.5%] md:block hidden">
-    <img src="pngwing11.png" alt="pngwing" class="absolute right-[10%] bottom-0 md:block hidden">
+    <img src="pngwing8.png" alt="pngwing" class="absolute left-[40%] top-[9%] md:block hidden size-36">
+    <img src="pngwing7.png" alt="pngwing" class="absolute right-[43%] top-[28%] md:block hidden size-36">
+    <img src="pngwing10.png" alt="pngwing" class="absolute left-[15%] bottom-[23%] md:block hidden size-36">
+    <img src="pngwing11.png" alt="pngwing" class="absolute right-[14%] bottom-[3%] md:block hidden size-36">
       <HeroSection 
         title="Kelola server Anda dengan lebih baik" 
         content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
