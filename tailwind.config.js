@@ -18,22 +18,15 @@ export default {
       letterSpacing: {
         widest: '0.2em'
       },
-      height: {
-        'screen-set': '88vh'
+      backgroundImage: {
+        'main-content1': "url('/src/assets/shine.png')",
+        'main-content2': "url('/src/assets/main_decoration.png')",
+        'hero-content': "url('/src/assets/hero.png')"
       },
-      fontSize: {
-        'md': ['15px', {
-          lineHeight: '22px'
-        }]
-      },
-      width: {
-        '86': '350px'
-      },
-      height: {
-        
-      }
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }
 
