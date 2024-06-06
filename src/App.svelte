@@ -29,15 +29,15 @@
       }
     };
 
-    mediaQuery.addListener(handleMediaQueryChange);
-
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    
     const handleScroll = () => {
       showScrollToTop = window.pageYOffset > 300;
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => {
-      mediaQuery.removeListener(handleMediaQueryChange);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
       window.removeEventListener('scroll', handleScroll);
     };
   });
