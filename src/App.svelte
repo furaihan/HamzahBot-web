@@ -4,11 +4,16 @@
   import { onMount } from 'svelte';
 
   let menuOpen = false;
+  let showScrollToTop = false;
+
   const toggleMenu = () => {
     menuOpen = !menuOpen;
     console.log("menu open: ", menuOpen);
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   onMount(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
 
@@ -19,8 +24,15 @@
     };
 
     mediaQuery.addListener(handleMediaQueryChange);
+
+    const handleScroll = () => {
+      showScrollToTop = window.pageYOffset > 300;
+    };
+
+    window.addEventListener('scroll', handleScroll);
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
+      window.removeEventListener('scroll', handleScroll);
     };
   });
 </script>
@@ -42,29 +54,34 @@
           </button>
           <button class="aspect-auto items-center md:hidden" on:click={toggleMenu}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-6 fill-white">
+              <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
               <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
             </svg>
           </button>
         </div>
       </div>
-      <nav class="flex-col space-y-4 bg-gray-800 border rounded border-black flex mx-4 mb-4 items-start pl-4 {menuOpen ? "flex" : "hidden"}">
-        <a href="#" class="nav-link w-full">Feature</a>
-        <a href="#" class="nav-link w-full">Premium</a>
-        <a href="#" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
+      <nav class="flex-col space-y-4 bg-gray-800 border rounded border-black flex mx-6 mb-4 items-start pl-4 {menuOpen ? "flex" : "hidden"}">
+        <a href="/#" class="nav-link w-full">Feature</a>
+        <a href="/#" class="nav-link w-full">Premium</a>
+        <a href="/#" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
       </nav>
     </header>
     
     <!-- Main content -->
-    <main class="px-4 md:px-8 py-16 min-h-screen flex items-center justify-center">
+    <main class="px-4 md:px-8 py-16 min-h-screen flex flex-col items-center justify-center relative">
       <section class="text-center space-y-8">
         <h1 class="text-4xl md:text-6xl font-bold tracking-widest">Hamzah</h1>
         <p class="max-w-xl mx-auto text-sm md:text-base">
-          Hamzah adalah bot Discord yang lengkap, mudah digunakan, yang dipercaya oleh jutaan server Discord di seluruh dunia untuk mengelola, menghibur, dan mengembangkan komunitas mereka.
-        </p>
-        <p class="text-white px-6 py-3 text-sm self-end md:text-base">
-          Jadikan Server Discord Anda Jauh Lebih Baik
+          Tingkatkan server Discord Anda dengan bot multifungsi kami—dari sambutan ramah hingga keamanan canggih, semua dalam satu paket untuk pengalaman komunitas yang lebih baik!.
         </p>
       </section>
+      
+      <!-- Bouncing Down Arrow -->
+      <div class="absolute bottom-8 animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </div>
     </main>
   </div>
   
@@ -98,10 +115,10 @@
   </section>
 
   <!-- Call to Action Section -->
-  <section class="flex items-center justify-center py-10 bg-purple-750">
-    <button class="flex items-center bg-white text-black font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base">
-      <img src="/src/assets/pngwing 6.png" alt="discord" class="w-6 md:w-auto">
-      <span class="ml-2 text-gray-700">Add to Discord</span>
+  <section class="flex items-center justify-center py-10 bg-discord">
+    <button class="transition flex items-center bg-white font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base hover:-translate-y-2 ease-in-out">
+      <img src="/src/assets/discord-mark-blue.svg" alt="discord" class="w-6">
+      <span class="ml-2 text-discord">Add to Discord</span>
     </button>
   </section>
 
@@ -113,19 +130,26 @@
       </div>
       <div class="text-center mb-4 md:mb-0 order-3 md:order-none">
           <p class="mt-4 max-w-md text-sm md:text-base">
-              Hamzah adalah bot Discord yang lengkap, mudah digunakan, yang dipercaya oleh jutaan server Discord di seluruh dunia untuk mengelola, menghibur, dan mengembangkan komunitas mereka.
+            Tingkatkan server Discord Anda dengan bot multifungsi kami—dari sambutan ramah hingga keamanan canggih, semua dalam satu paket untuk pengalaman komunitas yang lebih baik!.
           </p>
       </div>
       <div class="flex flex-col space-y-2 text-center md:text-right mb-4 md:mb-0">
-          <a href="#" class="hover:text-white">Contact</a>
-          <a href="#" class="hover:text-white">Social</a>
-          <a href="#" class="hover:text-white">Term of use</a>
-          <a href="#" class="hover:text-white">Privacy Policy</a>
-          <a href="#" class="hover:text-white">Premium</a>
+          <a href="/#" class="hover:text-white">Contact</a>
+          <a href="/#" class="hover:text-white">Social</a>
+          <a href="/#" class="hover:text-white">Term of use</a>
+          <a href="/#" class="hover:text-white">Privacy Policy</a>
+          <a href="/#" class="hover:text-white">Premium</a>
       </div>
     </div>
   </footer>
-
+<!-- Scroll to Top Button -->
+<div class="fixed bottom-4 right-4 z-50" class:hidden={!showScrollToTop}>
+  <button on:click={scrollToTop} class="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-3 shadow-lg transition-transform hover:scale-110">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+</div>
 </div>
 
 <style>
