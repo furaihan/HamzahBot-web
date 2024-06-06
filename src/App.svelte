@@ -30,7 +30,7 @@
     };
 
     mediaQuery.addEventListener('change', handleMediaQueryChange);
-    
+
     const handleScroll = () => {
       showScrollToTop = window.pageYOffset > 300;
     };
@@ -51,7 +51,7 @@
         <div class="text-2xl font-bold mb-4 md:mb-0">Hamzah</div>
         <NavbarItemsDesktop />
         <div class="flex flex-row items-center space-y-0 space-x-4">
-          <button class="group w-full md:w-auto backdrop-blur-sm bg-discord text-white px-4 py-2 rounded-3xl flex flex-row items-center space-x-2 border border-white hover:bg-white hover:text-discord transition ease-in-out hover:-translate-y-1">
+          <button class="group w-full md:w-auto backdrop-blur-sm bg-discord text-white px-4 py-2 rounded-3xl flex flex-row items-center space-x-2 border border-white hover:bg-white hover:text-discord transition delay-100 ease-in-out hover:-translate-y-1 hover:scale-110">
             <div class="aspect-auto items-center">
               <img src="{discordWhite}" alt="discord" class="w-6 group-hover:hidden">
               <img src="{discordBlue}" alt="discord" class="w-6 hidden group-hover:block">
@@ -96,7 +96,11 @@
   </div>
   
   <!-- Hero sections -->
-  <section class=" bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
+  <section class="relative bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
+    <img src="pngwing8.png" alt="pngwing" class="absolute left-1/3 top-[8%] md:block hidden">
+    <img src="pngwing7.png" alt="pngwing" class="absolute right-[36%] top-[25%] md:block hidden">
+    <img src="pngwing10.png" alt="pngwing" class="absolute left-[10%] bottom-[20.5%] md:block hidden">
+    <img src="pngwing11.png" alt="pngwing" class="absolute right-[10%] bottom-0 md:block hidden">
       <HeroSection 
         title="Kelola server Anda dengan lebih baik" 
         content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
