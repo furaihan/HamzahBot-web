@@ -72,18 +72,21 @@
     <img src="pngwing10.png" alt="pngwing" class="absolute left-[15%] bottom-[23%] md:block hidden size-36" />
     <img src="pngwing11.png" alt="pngwing" class="absolute right-[14%] bottom-[3%] md:block hidden size-36" />
     <HeroSection
+      id="server-management"
       title="Kelola server Anda dengan lebih baik"
       content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
       imageUrl="hero1.png"
       isImageLeft={false}
     />
     <HeroSection
+      id="wordle"
       title="Asah otak Anda dengan Wordle Bahasa Indonesia"
       content="Mainkan Wordle hari-hari dalam versi bahasa Indonesia. Kerahkan game ini untuk mengasah kosa kata bahasa Indonesia, melatih otak, dan bersaing dengan teman-teman."
       imageUrl="hero2.svg"
       isImageLeft={true}
     />
     <HeroSection
+      id="streaming-notification"
       title="Promosikan saluran streaming Anda"
       content="Layanan yang memberikan pemberitahuan kepada pengguna tentang sorotan baru dan penting dari saluran streaming yang mereka sukai. Melalui notifikasi, pengguna dapat tetap terinformasi secara real-time tentang video-video atau siaran yang akan dimulai."
       imageUrl="hero3.png"
@@ -91,6 +94,7 @@
       aspectRatio="4/3"
     />
     <HeroSection
+      id="ai-images"
       title="Ubah imajinasi menjadi nyata dengan AI"
       content="Uji coba kemampuan AI sistem mengubah gambar untuk gambar seni dan kreatif. Rasakan bot kami mentransformasi sentuhan magis pada foto-foto teman!"
       imageUrl="hero4.png"
