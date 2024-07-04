@@ -32,7 +32,7 @@
       >
         <a href="/#feature" class="nav-link w-full">Feature</a>
         <a href="/#" class="nav-link w-full">Premium</a>
-        <a href="/#" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
+        <a href="/#cta" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
       </nav>
     </header>
 
@@ -108,13 +108,15 @@
   </section>
 
   <!-- Call to Action Section -->
-  <section class="flex items-center justify-center py-10 bg-discord">
-    <button
-      class="transition flex items-center bg-white font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base hover:-translate-y-2 ease-in-out"
-    >
-      <img src="discord-mark-blue.svg" alt="discord" class="w-6" />
-      <span class="ml-2 text-discord">Add to Discord</span>
-    </button>
+  <section id="cta" class="flex items-center justify-center py-10 bg-discord">
+    <a href="{discordOauthUrl}">
+      <button
+        class="transition flex items-center bg-white font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base hover:-translate-y-2 ease-in-out"
+      >
+        <img src="discord-mark-blue.svg" alt="discord" class="w-6" />
+        <span class="ml-2 text-discord">Add to Discord</span>
+      </button>
+    </a>
   </section>
 
   <!-- Footer -->
@@ -155,6 +157,7 @@
   import HeroSection from './HeroSection.svelte';
   import NavbarItemsDesktop from './NavbarItemsDesktop.svelte';
   import { onMount } from 'svelte';
+  const discordOauthUrl = process.env.DISCORD_OAUTH_URL;
 
   let menuOpen = false;
   let showScrollToTop = false;
