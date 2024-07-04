@@ -30,7 +30,7 @@
           ? 'flex'
           : 'hidden'}"
       >
-        <a href="/#" class="nav-link w-full">Feature</a>
+        <a href="/#feature" class="nav-link w-full">Feature</a>
         <a href="/#" class="nav-link w-full">Premium</a>
         <a href="/#" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
       </nav>
@@ -66,7 +66,7 @@
   </div>
 
   <!-- Hero sections -->
-  <section class="relative bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
+  <section id="feature" class="relative bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
     <img src="pngwing8.png" alt="pngwing" class="absolute left-[40%] top-[9%] md:block hidden size-36" />
     <img src="pngwing7.png" alt="pngwing" class="absolute right-[43%] top-[28%] md:block hidden size-36" />
     <img src="pngwing10.png" alt="pngwing" class="absolute left-[15%] bottom-[23%] md:block hidden size-36" />
@@ -100,6 +100,11 @@
       imageUrl="hero4.png"
       isImageLeft={true}
     />
+  </section>
+  <section id="premium">
+    <div class="container flex flex-row">
+      
+    </div>
   </section>
 
   <!-- Call to Action Section -->
