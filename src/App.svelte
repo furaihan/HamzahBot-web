@@ -31,7 +31,7 @@
           : 'hidden'}"
       >
         <a href="/#feature" class="nav-link w-full">Feature</a>
-        <a href="/#" class="nav-link w-full">Premium</a>
+        <a href="/#premium" class="nav-link w-full">Premium</a>
         <a href="/#cta" class="nav-link w-full text-discord hover:text-white font-bold">Add to Discord</a>
       </nav>
     </header>
