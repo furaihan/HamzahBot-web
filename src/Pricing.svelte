@@ -51,15 +51,15 @@
     ];
   </script>
   
-  <div class="bg-gray-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="bg-dark-200 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:p-0">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         {#each plans as plan}
-          <div class="p-6 bg-gray-800 rounded-lg shadow-lg">
+          <div class="plan-card p-6 bg-gray-900 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold mb-4">{plan.title}</h2>
             <p class="text-xl line-through">{plan.originalPrice}</p>
             <p class="text-4xl font-bold mb-4">{plan.price}</p>
-            <ul class="mb-6">
+            <ul class="grow mb-6">
               {#each plan.features as feature}
                 <li class="flex items-start mb-2">
                   <span class="mr-2">✔️</span>
@@ -67,7 +67,7 @@
                 </li>
               {/each}
             </ul>
-            <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+            <button class="w-full bg-violet-800 hover:bg-violet-950 text-white font-bold py-3 px-4 rounded mt-auto">
               {plan.buttonText}
             </button>
           </div>
@@ -79,6 +79,11 @@
   <style>
     ul li span {
       white-space: pre-wrap; /* To handle new lines in feature text */
+    }
+    .plan-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     }
   </style>
   
