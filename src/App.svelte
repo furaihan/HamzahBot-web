@@ -102,9 +102,7 @@
     />
   </section>
   <section id="premium">
-    <div class="container flex flex-row">
-      
-    </div>
+    <Pricing/>
   </section>
 
   <!-- Call to Action Section -->
@@ -156,6 +154,7 @@
 <script>
   import HeroSection from './HeroSection.svelte';
   import NavbarItemsDesktop from './NavbarItemsDesktop.svelte';
+  import Pricing from './Pricing.svelte';
   import { onMount } from 'svelte';
   const discordOauthUrl = process.env.DISCORD_OAUTH_URL;
 
