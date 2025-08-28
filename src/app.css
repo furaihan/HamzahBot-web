@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --color-purple-750: #5e38c8;
+  --color-dark-200: #272934;
+  --color-discord: #5865f2;
+  
+  --letter-spacing-widest: 0.2em;
+  
+  --width-75: 75%;
+  
+  --background-image-main-content1: url('/src/assets/shine.png');
+  --background-image-main-content2: url('/src/assets/main_decoration.png');
+  --background-image-hero-content: url('/src/assets/hero.png');
+}
+
 html {
     scroll-behavior: smooth;
 }
