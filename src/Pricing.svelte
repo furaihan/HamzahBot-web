@@ -90,7 +90,7 @@
     },
   ];
 
-  let container;
+  let container = $state();
   let resizeObserver;
 
   onMount(() => {

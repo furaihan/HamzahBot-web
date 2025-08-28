@@ -1,11 +1,6 @@
 <!-- src/components/HeroSection.svelte -->
 <script>
-  export let title;
-  export let content;
-  export let imageUrl;
-  export let isImageLeft = false;
-  export let aspectRatio = 'auto';
-  export let id = '';
+  let { title, content, imageUrl, isImageLeft = false, aspectRatio = 'auto', id = '' } = $props();
 
   // Function to handle different aspect ratio values
   function getAspectRatioClass(ratio) {
@@ -27,7 +22,7 @@
     }
   }
 
-  $: aspectRatioClass = getAspectRatioClass(aspectRatio);
+  let aspectRatioClass = $derived(getAspectRatioClass(aspectRatio));
 </script>
 
 <section {id} class="flex flex-col w-full md:flex-row items-center justify-between md:w-3/4 p-6 h-1/4 z-10" class:md:flex-row-reverse={isImageLeft}>

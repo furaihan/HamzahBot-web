@@ -15,7 +15,7 @@
             </div>
             <p>Login with Discord</p>
           </button>
-          <button class="aspect-auto items-center md:hidden" on:click={toggleMenu}>
+          <button class="aspect-auto items-center md:hidden" onclick={toggleMenu} aria-label="Toggle menu">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-6 fill-white">
               <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
               <path
@@ -26,9 +26,7 @@
         </div>
       </div>
       <nav
-        class="flex-col space-y-4 bg-gray-800 border rounded border-black flex mx-6 mb-4 items-start pl-4 {menuOpen
-          ? 'flex'
-          : 'hidden'}"
+        class={`flex-col space-y-4 bg-gray-800 border rounded border-black flex mx-6 mb-4 items-start pl-4 ${menuOpen ? 'flex' : 'hidden'}`}
       >
         <a href="/#feature" class="nav-link w-full">Feature</a>
         <a href="/#premium" class="nav-link w-full">Premium</a>
@@ -107,7 +105,7 @@
 
   <!-- Call to Action Section -->
   <section id="cta" class="flex items-center justify-center py-10 bg-discord">
-    <a href="{discordOauthUrl}">
+    <a href={discordOauthUrl}>
       <button
         class="transition flex items-center bg-white font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base hover:-translate-y-2 ease-in-out"
       >
@@ -141,7 +139,8 @@
   <!-- Scroll to Top Button -->
   <div class="fixed bottom-4 right-4 z-50" class:hidden={!showScrollToTop}>
     <button
-      on:click={scrollToTop}
+      onclick={scrollToTop}
+      aria-label="Scroll to top"
       class="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-3 shadow-lg transition-transform hover:scale-110"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -156,10 +155,10 @@
   import NavbarItemsDesktop from './NavbarItemsDesktop.svelte';
   import Pricing from './Pricing.svelte';
   import { onMount } from 'svelte';
-  const discordOauthUrl = process.env.DISCORD_OAUTH_URL;
+  const discordOauthUrl = import.meta.env.VITE_DISCORD_OAUTH_URL ?? import.meta.env.DISCORD_OAUTH_URL ?? '';
 
-  let menuOpen = false;
-  let showScrollToTop = false;
+  let menuOpen = $state(false);
+  let showScrollToTop = $state(false);
 
   const toggleMenu = () => {
     menuOpen = !menuOpen;
