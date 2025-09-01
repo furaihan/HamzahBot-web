@@ -17,7 +17,9 @@
     "prettier-plugin-svelte": "^3.4.0",
     "svelte": "^5.38.6",
     "tailwindcss": "^4.1.12",
-    "vite": "^7.1.3"
+    "terser": "^5.43.1",
+    "vite": "^7.1.3",
+    "vite-plugin-compression": "^0.5.1"
   },
   "dependencies": {
     "dotenv": "^17.2.1"

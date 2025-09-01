@@ -10,8 +10,8 @@
             class="group w-full md:w-auto backdrop-blur-sm bg-discord text-white px-4 py-2 rounded-3xl flex flex-row items-center space-x-2 border border-white hover:bg-white hover:text-discord transition delay-100 ease-in-out hover:-translate-y-1 hover:scale-110"
           >
             <div class="aspect-auto items-center">
-              <img src="discord-mark-white.svg" alt="discord" class="w-6 group-hover:hidden" />
-              <img src="discord-mark-blue.svg" alt="discord" class="w-6 hidden group-hover:block" />
+              <img src="discord-mark-white.svg" alt="discord" loading="eager" data-critical class="w-6 group-hover:hidden" />
+              <img src="discord-mark-blue.svg" alt="discord" loading="eager" data-critical class="w-6 hidden group-hover:block" />
             </div>
             <p>Login with Discord</p>
           </button>
@@ -65,16 +65,18 @@
 
   <!-- Hero sections -->
   <section id="feature" class="relative bg-dark-200 flex flex-col space-y-20 p-20 items-center w-full">
-    <img src="pngwing8.png" alt="pngwing" class="absolute left-[40%] top-[9%] md:block hidden size-36" />
-    <img src="pngwing7.png" alt="pngwing" class="absolute right-[43%] top-[28%] md:block hidden size-36" />
-    <img src="pngwing10.png" alt="pngwing" class="absolute left-[15%] bottom-[23%] md:block hidden size-36" />
-    <img src="pngwing11.png" alt="pngwing" class="absolute right-[14%] bottom-[3%] md:block hidden size-36" />
+    <!-- Background decoration images - these are below the fold so can be lazy loaded -->
+    <img src="pngwing8.png" alt="pngwing" loading="lazy" class="absolute left-[40%] top-[9%] md:block hidden size-36" />
+    <img src="pngwing7.png" alt="pngwing" loading="lazy" class="absolute right-[43%] top-[28%] md:block hidden size-36" />
+    <img src="pngwing10.png" alt="pngwing" loading="lazy" class="absolute left-[15%] bottom-[23%] md:block hidden size-36" />
+    <img src="pngwing11.png" alt="pngwing" loading="lazy" class="absolute right-[14%] bottom-[3%] md:block hidden size-36" />
     <HeroSection
       id="server-management"
       title="Kelola server Anda dengan lebih baik"
       content="Satu fitur manajemen dengan pesan yang dipersonalisasi, pengaturan server pintar, dan bot yang dapat melakukan tugas berkala. Kelas voice channel dengan temporary voice, dan undang teman-teman Anda dari acara di online. Dapatkan fitur-fitur canggih untuk pengalaman server Discord yang lebih baik."
       imageUrl="hero1.png"
       isImageLeft={false}
+      isAboveFold={true}
     />
     <HeroSection
       id="wordle"
@@ -82,6 +84,7 @@
       content="Mainkan Wordle hari-hari dalam versi bahasa Indonesia. Kerahkan game ini untuk mengasah kosa kata bahasa Indonesia, melatih otak, dan bersaing dengan teman-teman."
       imageUrl="hero2.svg"
       isImageLeft={true}
+      isAboveFold={false}
     />
     <HeroSection
       id="streaming-notification"
@@ -90,6 +93,7 @@
       imageUrl="hero3.png"
       isImageLeft={false}
       aspectRatio="4/3"
+      isAboveFold={false}
     />
     <HeroSection
       id="ai-images"
@@ -97,10 +101,24 @@
       content="Uji coba kemampuan AI sistem mengubah gambar untuk gambar seni dan kreatif. Rasakan bot kami mentransformasi sentuhan magis pada foto-foto teman!"
       imageUrl="hero4.png"
       isImageLeft={true}
+      isAboveFold={false}
     />
   </section>
   <section id="premium">
-    <Pricing/>
+    {#if PricingComponent}
+      <PricingComponent />
+    {:else if pricingSectionVisible}
+      <!-- Loading placeholder for pricing component -->
+      <div class="bg-dark-200 text-white py-12 flex justify-center items-center min-h-[400px]">
+        <div class="text-center">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+          <p>Loading pricing...</p>
+        </div>
+      </div>
+    {:else}
+      <!-- Placeholder for pricing section -->
+      <div class="bg-dark-200 min-h-[400px]"></div>
+    {/if}
   </section>
 
   <!-- Call to Action Section -->
@@ -109,7 +127,7 @@
       <button
         class="transition flex items-center bg-white font-bold px-4 md:px-6 py-3 rounded-2xl text-sm md:text-base hover:-translate-y-2 ease-in-out"
       >
-        <img src="discord-mark-blue.svg" alt="discord" class="w-6" />
+        <img src="discord-mark-blue.svg" alt="discord" loading="lazy" class="w-6" />
         <span class="ml-2 text-discord">Add to Discord</span>
       </button>
     </a>
@@ -153,21 +171,45 @@
 <script>
   import HeroSection from './HeroSection.svelte';
   import NavbarItemsDesktop from './NavbarItemsDesktop.svelte';
-  import Pricing from './Pricing.svelte';
   import { onMount } from 'svelte';
+  
+  // Use import.meta.env more extensively for environment-specific optimizations
   const discordOauthUrl = import.meta.env.VITE_DISCORD_OAUTH_URL ?? import.meta.env.DISCORD_OAUTH_URL ?? '';
+  const isDevelopment = import.meta.env.DEV;
+  const isProduction = import.meta.env.PROD;
 
   let menuOpen = $state(false);
   let showScrollToTop = $state(false);
+  
+  // Dynamic import for lazy-loaded components
+  let PricingComponent = $state(null);
+  let pricingSectionVisible = $state(false);
 
   const toggleMenu = () => {
     menuOpen = !menuOpen;
-    console.log('menu open: ', menuOpen);
+    if (isDevelopment) {
+      console.log('menu open: ', menuOpen);
+    }
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  
+  // Lazy load Pricing component when needed
+  const loadPricingComponent = async () => {
+    if (!PricingComponent) {
+      try {
+        const module = await import('./Pricing.svelte');
+        PricingComponent = module.default;
+      } catch (error) {
+        if (isDevelopment) {
+          console.error('Failed to load Pricing component:', error);
+        }
+      }
+    }
+  };
+
   onMount(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
 
@@ -181,9 +223,25 @@
 
     const handleScroll = () => {
       showScrollToTop = window.pageYOffset > 300;
+      
+      // Check if pricing section is in viewport for lazy loading
+      const pricingSection = document.getElementById('premium');
+      if (pricingSection && !pricingSectionVisible) {
+        const rect = pricingSection.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight + 200; // Load 200px before visible
+        
+        if (isVisible) {
+          pricingSectionVisible = true;
+          loadPricingComponent();
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    // Initial check for pricing section visibility
+    handleScroll();
+    
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
       window.removeEventListener('scroll', handleScroll);
