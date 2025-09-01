@@ -1,19 +1,69 @@
 @import "tailwindcss";
 
 @theme {
+  /* Color system - grouped for better organization */
   --color-purple-750: #5e38c8;
   --color-dark-200: #272934;
   --color-discord: #5865f2;
   
+  /* Typography system */
   --letter-spacing-widest: 0.2em;
   
+  /* Layout system */
   --width-75: 75%;
   
+  /* Background images - optimized with contain for better performance */
   --background-image-main-content1: url('/src/assets/shine.png');
   --background-image-main-content2: url('/src/assets/main_decoration.png');
   --background-image-hero-content: url('/src/assets/hero.png');
 }
 
+/* Critical CSS - above the fold styles */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  /* CSS containment for performance */
+  contain: style layout;
+}
+
+/* Optimize initial render with critical styles */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+}
+
+/* Container queries preparation for responsive design */
+@container (min-width: 768px) {
+  .responsive-container {
+    contain: layout style paint;
+  }
+}
+
+/* Optimize font loading */
+@font-face {
+  font-display: swap; /* Improve font loading performance */
+}
+
+/* Performance optimizations */
+img {
+  /* Default lazy loading for all images except critical ones */
+  loading: lazy;
+  /* Optimize image rendering */
+  image-rendering: optimizeQuality;
+}
+
+/* Critical images that should load immediately */
+img[data-critical] {
+  loading: eager;
+}
+
+/* Optimize animations for performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,6 +1,33 @@
-# Svelte + Vite
+# HamzahBot Web
 
-This template should help get you started developing with Svelte in Vite.
+Modern, performance-optimized web application for HamzahBot Discord bot.
+
+## Performance Features
+
+This project implements several performance optimizations:
+
+### Code Splitting & Dynamic Imports
+- Lazy loading of components (Pricing component loads on scroll)
+- Vendor chunking separates Svelte framework from application code
+- Tree-shaking eliminates unused code in production builds
+
+### Resource Optimization
+- **Resource hints**: DNS prefetch and preconnect for external domains
+- **Image optimization**: Lazy loading for below-the-fold images
+- **Critical CSS**: Optimized CSS loading strategy
+- **Compression**: Gzip and Brotli compression for production assets
+
+### Loading Performance
+- Asynchronous Google Analytics loading (non-blocking)
+- Service worker for static asset caching
+- Optimized favicon strategy with multiple sizes
+- Structured data markup for SEO
+
+### Build Optimizations
+- Terser minification for production
+- CSS minification and code splitting  
+- Asset inlining for small files (<4KB)
+- Environment-specific configurations
 
 ## Recommended IDE Setup
 

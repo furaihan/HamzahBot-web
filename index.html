@@ -1,33 +1,85 @@
 <!doctype html>
 <html lang="id">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_ID%"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', '%VITE_GOOGLE_ANALYTICS_ID%');
-    </script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Resource hints for performance -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    
+    <!-- Improved favicon strategy with multiple sizes -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/vite.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/vite.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/vite.svg" />
+    
+    <!-- Preload critical CSS for faster rendering -->
+    <link rel="preload" href="/src/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/app.css"></noscript>
+    
     <title>Hamzah Bot - Bot Discord Multifungsi untuk Meningkatkan Server Anda</title>
     <meta name="description" content="Tingkatkan server Discord Anda dengan Hamzah Bot, bot multifungsi yang menyediakan fitur manajemen, game Wordle Bahasa Indonesia, notifikasi streaming, dan kreasi AI." />
     <meta name="keywords" content="Discord bot, Hamzah Bot, manajemen server, Wordle Bahasa Indonesia, notifikasi streaming, AI image generation" />
     <meta name="author" content="Zhafar and team" />
     <link rel="canonical" href="https://hamzahbot.zhafar.id/" />
+    
+    <!-- Open Graph meta tags -->
     <meta property="og:title" content="Hamzah Bot - Bot Discord Multifungsi" />
     <meta property="og:description" content="Tingkatkan server Discord Anda dengan Hamzah Bot, bot multifungsi untuk pengalaman komunitas yang lebih baik." />
     <meta property="og:image" content="https://hamzahbot.zhafar.id/hero1.png" />
     <meta property="og:url" content="https://hamzahbot.zhafar.id/" />
     <meta property="og:type" content="website" />
+    
+    <!-- Structured data for better SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Hamzah Bot",
+      "description": "Bot Discord multifungsi yang menyediakan fitur manajemen, game Wordle Bahasa Indonesia, notifikasi streaming, dan kreasi AI",
+      "url": "https://hamzahbot.zhafar.id/",
+      "applicationCategory": "CommunicationApplication",
+      "operatingSystem": "Discord",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Zhafar and team"
+      }
+    }
+    </script>
+    
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    
+    <!-- Load Google Analytics asynchronously to prevent blocking -->
+    <script>
+      // Use import.meta.env for environment-specific loading
+      if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+        // Defer Google Analytics loading
+        window.addEventListener('load', function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=%VITE_GOOGLE_ANALYTICS_ID%';
+          document.head.appendChild(script);
+          
+          script.onload = function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '%VITE_GOOGLE_ANALYTICS_ID%');
+          };
+        });
+      }
+    </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!-- src/components/HeroSection.svelte -->
 <script>
-  let { title, content, imageUrl, isImageLeft = false, aspectRatio = 'auto', id = '' } = $props();
+  let { title, content, imageUrl, isImageLeft = false, aspectRatio = 'auto', id = '', isAboveFold = false } = $props();
 
   // Function to handle different aspect ratio values
   function getAspectRatioClass(ratio) {
@@ -23,6 +23,7 @@
   }
 
   let aspectRatioClass = $derived(getAspectRatioClass(aspectRatio));
+  let loadingStrategy = $derived(isAboveFold ? 'eager' : 'lazy');
 </script>
 
 <section {id} class="flex flex-col w-full md:flex-row items-center justify-between md:w-3/4 p-6 h-1/4 z-10" class:md:flex-row-reverse={isImageLeft}>
@@ -32,7 +33,13 @@
   </div>
   <div class="flex justify-center w-full md:w-auto">
     <div class="w-64 md:w-86 overflow-hidden {aspectRatioClass}">
-      <img src={imageUrl} alt={title} class="w-full h-full object-cover rounded-lg">
+      <img 
+        src={imageUrl} 
+        alt={title} 
+        loading={loadingStrategy}
+        class="w-full h-full object-cover rounded-lg"
+        class:data-critical={isAboveFold}
+      >
     </div>
   </div>
 </section>
